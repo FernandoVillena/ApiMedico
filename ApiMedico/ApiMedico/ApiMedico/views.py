@@ -1,23 +1,7 @@
-from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
-from rest_framework import permissions
 from consulta.models import Medico,Paciente,FichaMedica,Prescripcion
-from ApiMedico.serializers import UserSerializer, GroupSerializer,MedicoSerializer,PacienteSerializer,FichaMedicaSerializer,PrescripcionSerializer
-
-
-class UserViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows users to be viewed or edited.
-    """
-    queryset = User.objects.all().order_by('-date_joined')
-    serializer_class = UserSerializer
-
-class GroupViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows groups to be viewed or edited.
-    """
-    queryset = Group.objects.all()
-    serializer_class = GroupSerializer
+from ApiMedico.serializers import MedicoSerializer,PacienteSerializer,PrescripcionSerializer
+from ApiMedico.ficha import FichaMedicaSerializer
 
 class MedicoViewSet(viewsets.ModelViewSet):
     """
@@ -42,10 +26,11 @@ class FichaMedicaViewSet(viewsets.ModelViewSet):
     queryset = FichaMedica.objects.all()
     serializer_class = FichaMedicaSerializer
 
-
 class PrescripcionViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows groups to be viewed or edited.
     """
     queryset = Prescripcion.objects.all()
     serializer_class = PrescripcionSerializer
+
+

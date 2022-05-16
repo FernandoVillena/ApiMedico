@@ -20,12 +20,12 @@ from django.contrib import admin
 from ApiMedico import views
 
 router = routers.DefaultRouter()
-router.register(r'users', views.UserViewSet)
-router.register(r'groups', views.GroupViewSet)
 router.register(r'Medico', views.MedicoViewSet)
 router.register(r'Paciente', views.PacienteViewSet)
 router.register(r'FichaMedica', views.FichaMedicaViewSet)
 router.register(r'Prescripcion', views.PrescripcionViewSet)
+
+
 
 
 # Wire up our API using automatic URL routing.
