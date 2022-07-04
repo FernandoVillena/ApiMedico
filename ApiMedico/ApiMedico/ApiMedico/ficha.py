@@ -4,7 +4,7 @@ from ApiMedico.serializers import PrescripcionSerializer,PacienteSerializer,Medi
 from consulta.models import FichaMedica
 
 class FichaMedicaSerializer(serializers.ModelSerializer):
-    prescripciones = PrescripcionSerializer(many=True, read_only=True)
+    prescripciones = PrescripcionSerializer(many=True,read_only=True)
     paciente = PacienteSerializer(read_only=True)
     Medico = MedicoSerializer(read_only=True)
 

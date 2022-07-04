@@ -1,4 +1,5 @@
 from django.db import models
+from ApiMedico.utils import validador_pendiente_entregado 
 
 
 class Medico(models.Model):
@@ -30,7 +31,7 @@ class Prescripcion(models.Model):
     fichaMedica = models.ForeignKey(FichaMedica, related_name='prescripciones', on_delete= models.CASCADE)
     id_medicamen= models.IntegerField()
     Medicamento= models.CharField(max_length=100)
-    estado = models.CharField(max_length=20)
+    estado = models.CharField(max_length=20, validators=[validador_pendiente_entregado])
     
 
 
